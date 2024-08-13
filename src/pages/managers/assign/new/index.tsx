@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { handleGetVehicles } from "../../../../utils/vehicles";
 import { vehicles } from "../../../../types/vehicles";
@@ -48,6 +49,10 @@ export default function Assignment() {
     getVehicles({});
     getDrivers({});
   }, []);
+
+  useEffect(() => {
+    getVehicles({ [vehicleSearchBy]: vehicleSearchValue , start_time: startDate, end_time: endDate });
+  }, [startDate, endDate]);
 
   const newAssignment = async () => {
     try {
@@ -165,8 +170,8 @@ export default function Assignment() {
                     bg-secondary-bg p-4 col-span-4 flex flex-row justify-around border border-accent-bg rounded-md transition-all
                     ${
                       selectedVehicle === vehicle.id
-                        ? "bg-slate-400"
-                        : "hover:bg-slate-200"
+                        ? "bg-slate-800"
+                        : "hover:bg-slate-900"
                     }
                     `}
               >
@@ -204,8 +209,8 @@ export default function Assignment() {
                     bg-secondary-bg p-4 border col-span-3 flex flex-row justify-around border-accent-bg rounded-md
                     ${
                       selectedDriver.includes(driver.id)
-                        ? "bg-slate-400"
-                        : "hover:bg-slate-200"
+                        ? "bg-slate-800"
+                        : "hover:bg-slate-900"
                     }
                     `}
               >

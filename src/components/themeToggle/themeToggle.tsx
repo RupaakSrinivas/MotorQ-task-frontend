@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function ThemeToggle() {
 
-  const [currentTheme, setCurrentTheme] = useState("light");
+  const [currentTheme, setCurrentTheme] = useState("dark");
 
   function toggleDarkMode() {
     const container = document.getElementsByTagName("body")[0];

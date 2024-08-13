@@ -1,24 +1,27 @@
 import { TbLayoutSidebarLeftExpand } from "react-icons/tb";
 import { useState, useRef, useEffect } from "react";
-import { MdDashboard, MdCloudUpload, MdOutlineLogout } from "react-icons/md";
+import { MdDashboard, MdOutlineLogout } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import ThemeToggle from "./themeToggle/themeToggle";
+import { MdOutlineAssignmentInd } from "react-icons/md";
+import { BsTruck } from "react-icons/bs";
+import { GoPerson } from "react-icons/go";
 import { authStore } from "../store/auth";
 
 const NavItemsManagers = [
   {
     title: "Drivers",
-    icon: MdDashboard,
+    icon: GoPerson,
     link: "/manager/drivers",
   },
   {
     title: "Vehicles",
-    icon: MdCloudUpload,
+    icon: BsTruck,
     link: "/manager/vehicles",
   },
   {
     title: "Assign",
-    icon: MdCloudUpload,
+    icon: MdOutlineAssignmentInd,
     link: "/manager/assign",
   },
 ];

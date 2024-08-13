@@ -64,7 +64,7 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <div className="h-[64px] flex flex-row items-center justify-between p-4 bg-primary-bg">
+    <div className="h-[64px] flex flex-row items-center justify-between p-4 bg-secondary-bg">
       <ToastContainer />
       <div className="md:hidden z-10">
         <button

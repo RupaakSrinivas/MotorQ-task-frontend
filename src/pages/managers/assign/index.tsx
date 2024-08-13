@@ -60,7 +60,7 @@ export default function Assignment() {
           Add New Assignment
         </button>
       </div>
-      <table className="table-auto w-full">
+      <table className="table-auto w-full mt-4">
         <thead>
           <tr>
             <th className="px-4 py-2">Driver Name</th>

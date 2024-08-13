@@ -51,7 +51,11 @@ export default function Assignment() {
   }, []);
 
   useEffect(() => {
-    getVehicles({ [vehicleSearchBy]: vehicleSearchValue , start_time: startDate, end_time: endDate });
+    getVehicles({
+      [vehicleSearchBy]: vehicleSearchValue,
+      start_time: startDate,
+      end_time: endDate,
+    });
   }, [startDate, endDate]);
 
   const newAssignment = async () => {
@@ -63,7 +67,7 @@ export default function Assignment() {
         end_time: endDate,
       });
       toast.success(response, { toastId: response });
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.log(error.message);
       toast.error(error.message, { toastId: error.message });
@@ -147,6 +151,13 @@ export default function Assignment() {
               className="p-2 rounded-md bg-secondary-bg"
             />
           </div>
+          <div className="flex flex-row gap-4 items-center">
+            <label className="text-accent-text">Latitude and Longitude:</label>
+            <input
+              type="string"
+              className="p-2 rounded-md bg-secondary-bg"
+            />
+          </div>
         </div>
         <div>
           <button
@@ -170,8 +181,8 @@ export default function Assignment() {
                     bg-secondary-bg p-4 col-span-4 flex flex-row justify-around border border-accent-bg rounded-md transition-all
                     ${
                       selectedVehicle === vehicle.id
-                        ? "bg-slate-800"
-                        : "hover:bg-slate-900"
+                        ? "bg-slate-400"
+                        : "hover:bg-slate-200"
                     }
                     `}
               >
@@ -193,8 +204,7 @@ export default function Assignment() {
             driverData.map((driver, index) => (
               <button
                 key={index}
-                onClick={() => 
-
+                onClick={() =>
                   setSelectedDriver((prev) => {
                     if (prev?.includes(driver.id)) {
                       return prev?.filter((id) => id !== driver.id);
@@ -202,15 +212,14 @@ export default function Assignment() {
                       return [...(prev || []), driver.id];
                     }
                   })
-
                 }
                 // disabled={true}
                 className={`
                     bg-secondary-bg p-4 border col-span-3 flex flex-row justify-around border-accent-bg rounded-md
                     ${
                       selectedDriver.includes(driver.id)
-                        ? "bg-slate-800"
-                        : "hover:bg-slate-900"
+                        ? "bg-slate-400"
+                        : "hover:bg-slate-200"
                     }
                     `}
               >
